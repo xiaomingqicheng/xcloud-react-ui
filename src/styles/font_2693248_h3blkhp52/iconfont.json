@@ -1,0 +1,30 @@
+{
+  "id": "2693248",
+  "name": "项目",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8604884",
+      "name": "服务",
+      "font_class": "xuanzhong",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "10375454",
+      "name": "node",
+      "font_class": "node",
+      "unicode": "e7d0",
+      "unicode_decimal": 59344
+    },
+    {
+      "icon_id": "3756733",
+      "name": "POD",
+      "font_class": "POD",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    }
+  ]
+}
