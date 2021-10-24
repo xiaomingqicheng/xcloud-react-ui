@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import {Button, Form, Modal, Input, Icon, message} from "antd";
+import { UserOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Button, Modal, Input, message } from "antd";
 import { postEnv } from '../../api/env'
 import EnvTable from "./table";
 class EnvComponent extends Component {
@@ -47,7 +50,7 @@ class EnvComponent extends Component {
                             rules: [{ required: true, message: '请输入环境名称!' }],
                         })(
                             <Input
-                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="name"
                             />
                         )}
@@ -56,7 +59,7 @@ class EnvComponent extends Component {
                 </Modal>
                 <EnvTable></EnvTable>
             </div>
-        )
+        );
     }
 }
 export default Form.create()(EnvComponent);

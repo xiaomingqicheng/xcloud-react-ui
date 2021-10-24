@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {Form} from "antd";
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
 import {Button, Modal, Input, message, Select, Tag, Radio} from "antd";
 import {getCert, postCert} from "../../../../api/cert";
 import {postRegistry} from "../../../../api/registry";

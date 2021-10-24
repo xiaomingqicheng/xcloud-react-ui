@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { Form, Icon, Input, Button, message, Spin } from "antd";
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Input, Button, message, Spin } from "antd";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import "./index.less";
@@ -75,7 +78,7 @@ const Login = (props) => {
               })(
                 <Input
                   prefix={
-                    <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                    <UserOutlined style={{ color: "rgba(0,0,0,.25)" }} />
                   }
                   placeholder="用户名"
                 />
@@ -94,7 +97,7 @@ const Login = (props) => {
               })(
                 <Input
                   prefix={
-                    <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                    <LockOutlined style={{ color: "rgba(0,0,0,.25)" }} />
                   }
                   type="password"
                   placeholder="密码"
@@ -110,13 +113,13 @@ const Login = (props) => {
                 登录
               </Button>
             </Form.Item>
-            <Form.Item>
-              <span>账号 : admin 密码 : 随便填</span>
-              <br />
-              <span>账号 : editor 密码 : 随便填</span>
-              <br />
-              <span>账号 : guest 密码 : 随便填</span>
-            </Form.Item>
+            {/*<Form.Item>*/}
+            {/*  <span>账号 : admin 密码 : 随便填</span>*/}
+            {/*  <br />*/}
+            {/*  <span>账号 : editor 密码 : 随便填</span>*/}
+            {/*  <br />*/}
+            {/*  <span>账号 : guest 密码 : 随便填</span>*/}
+            {/*</Form.Item>*/}
           </Spin>
         </Form>
       </div>

@@ -12,7 +12,7 @@ const LayoutSider = (props) => {
       collapsible
       collapsed={sidebarCollapsed}
       trigger={null}
-      style={{ zIndex: "10" }}
+      style={{ zIndex: "10" ,height: '100vh', overflowY:'scroll' }}
     >
       {sidebarLogo ? <Logo /> : null}
       <Menu />

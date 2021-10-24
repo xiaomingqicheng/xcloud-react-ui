@@ -39,7 +39,7 @@ const menuList = [
           },
           {
             title: "配置管理",
-            path: "/appdeliver/container/config",
+            path: "/appdeliver/containermanage/configmanage",
             icon: "home",
             roles: ["admin", "editor", "guest"]
           }

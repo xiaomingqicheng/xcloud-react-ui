@@ -8,3 +8,11 @@ export function getClusterImages(params) {
         params
     })
 }
+
+export function getImageTagList(params) {
+    return request({
+        url: '/v1/imagetaglist',
+        method: 'get',
+        params
+    })
+}
