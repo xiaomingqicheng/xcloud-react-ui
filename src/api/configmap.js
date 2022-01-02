@@ -8,9 +8,17 @@ export function postConfigmap(data) {
     })
 }
 
-export function getCert() {
+export function getConfigmap() {
     return request({
-        url: '/v1/cert',
+        url: '/v1/configmap',
+        method: 'get'
+    })
+}
+
+export function getNamespace(params) {
+    return request({
+        url: '/v1/namespace',
         method: 'get',
+        params
     })
 }

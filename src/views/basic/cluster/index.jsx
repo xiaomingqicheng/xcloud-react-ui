@@ -5,6 +5,7 @@ import { Button, Modal, Input, message, Select } from "antd";
 import { postCluster,putCluster } from "../../../api/cluster";
 import ClusterTable from "./table";
 import {getEnv} from "../../../api/env";
+import {Terminal} from "xterm";
 const { TextArea } = Input
 
 class ClusterComponent extends Component {
@@ -110,6 +111,7 @@ class ClusterComponent extends Component {
                 <Button type="primary" onClick={this.showAddModal} >
                     添加集群
                 </Button>
+
                 <Modal
                     title="添加环境"
                     onOk={this.handleSubmit}

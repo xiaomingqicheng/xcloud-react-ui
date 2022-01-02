@@ -2,16 +2,27 @@ import React, { Component,useState }from "react";
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import '@ant-design/compatible/assets/index.css';
 import AppComponent from "../appmanage";
-import {Button, Form, Input, message, Modal, Select, Space} from "antd";
-import { postConfigmap } from "../../../../api/configmap";
+import {Button, Divider, Form, Input, message, Modal, Select, Space, Table} from "antd";
+import { postConfigmap,getNamespace,getConfigmap } from "../../../../api/configmap";
 import {getCluster} from "../../../../api/cluster";
 
 class ConfigComponent extends Component {
     formConfigmapRef = React.createRef();
     state = {
+        configmapData: [],
         configmapvisible: false,
         clusterlist: [],
+        namespaceList: {'items': []}
     };
+
+    fetchConfimapData = () => {
+        getConfigmap().then(res => {
+            this.setState({
+                configmapData: res.data
+            })
+        })
+    };
+
     showModal = () => {
         this.setState({configmapvisible: true})
         getCluster().then((response) => {
@@ -31,9 +42,18 @@ class ConfigComponent extends Component {
     handleCancel = () => {
         this.setState({configmapvisible: false})
     };
-    fetchNamespace = (cluster) => {
-        console.log(cluster,'ooooooooo')
+    fetchNamespace = (cluster_id) => {
+        const data = {'cluster_id': cluster_id}
+        getNamespace(data).then(res => {
+            this.setState({
+                namespaceList: res.data,
+            });
+            console.log(this.state.namespaceList)
+        })
     };
+    componentDidMount() {
+        this.fetchConfimapData();
+    }
     render() {
         const formItemLayout = {
             labelCol: {
@@ -46,6 +66,17 @@ class ConfigComponent extends Component {
         return (
             <div className={"app-container"}>
                 <Button type={"primary"} onClick={this.showModal}>创建Configmap</Button>
+                {/*<Table dataSource={this.state.configmapData}>*/}
+                    {/*<Column title="Id" dataIndex="Id" key="Id"  align="center"/>*/}
+                    {/*<Column title="环境名称"  align="center"/>*/}
+                    {/*<Column title="集群名称"   align="center"/>*/}
+                    {/*<Column title="ConfigMap数量"  align="center"/>*/}
+                    {/*<Column title="操作" key="action" align="center" render={row => (*/}
+                    {/*    <span>*/}
+                    {/*        <Button type="primary"  onClick={e => this.handleshowEdit(e, row)}>详情</Button>*/}
+                    {/*    </span>*/}
+                    {/*)}/>*/}
+                {/*</Table>*/}
                 <Modal
                     title="创建configmap"
                     onOk={this.handleSubmitConfigmap}
@@ -56,16 +87,16 @@ class ConfigComponent extends Component {
                 >
                 <Form {...formItemLayout}  ref={this.formConfigmapRef}>
                     <Form.Item label="选择集群" name="cluster">
-                        <Select onChange={this.fetchImages} >
+                        <Select onChange={this.fetchNamespace} >
                             {this.state.clusterlist.map(item => (
                                 <Select.Option value={item.Id} key={item.Id}>{item.Name}</Select.Option>
                             ))}
                         </Select>
                     </Form.Item>
-                    <Form.Item label="选择名称空间" name="cluster">
+                    <Form.Item label="选择名称空间" name="namespace">
                         <Select onChange={this.fetchImages} >
-                            {this.state.clusterlist.map(item => (
-                                <Select.Option value={item.Id} key={item.Id}>{item.Name}</Select.Option>
+                            {this.state.namespaceList.items.map(item => (
+                                <Select.Option value={item.metadata.name} key={item.metadata.name}>{item.metadata.name}</Select.Option>
                             ))}
                         </Select>
                     </Form.Item>
