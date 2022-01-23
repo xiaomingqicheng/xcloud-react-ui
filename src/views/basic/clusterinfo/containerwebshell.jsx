@@ -40,7 +40,7 @@ class ContainerWebshell extends Component {
             this.term.loadAddon(fitPlugin);
              // 将term挂载到dom节点上
             const ws_addr = 'ws://192.168.0.108:8080/v1/containerwebshell/?namespace=' + this.props.row.Namespace + '&pod=' + this.props.row.name + '&container=' + ''
-            this.terminalSocket = new WebSocket(ws_addr)
+            this.terminalSocket = new WebSocket(ws_addr);
             this.terminalSocket.onmessage = e => this.term.write(e.data);
             this.terminalSocket.onopen = () => {
                 this.term.open(this.container);
@@ -54,9 +54,6 @@ class ContainerWebshell extends Component {
             });
             window.onresize = () => fitPlugin.fit()
         }
-    }
-    initXtem = () => {
-
     }
     runRealTerminal =() => {
         this.term.focus();

@@ -8,6 +8,7 @@ const Cluster = Loadable({loader: () => import(/*webpackChunkName:'Env'*/'@/view
 const ClusterInfo = Loadable({loader: () => import(/*webpackChunkName:'Env'*/'@/views/basic/clusterinfo'),loading: Loading});
 const Appmanage = Loadable({loader: () => import(/*webpackChunkName:'Env'*/'@/views/appdeliver/containermanage/appmanage'),loading: Loading});
 const Configmanage = Loadable({loader: () => import(/*webpackChunkName:'Env'*/'@/views/appdeliver/containermanage/configmanage'),loading: Loading});
+const Projectbuild = Loadable({loader: () => import(/*webpackChunkName:'Env'*/'@/views/appdeliver/ci/projectbuild'),loading: Loading});
 
 const Doc = Loadable({loader: () => import(/*webpackChunkName:'Doc'*/'@/views/doc'),loading: Loading});
 const Guide = Loadable({loader: () => import(/*webpackChunkName:'Guide'*/'@/views/guide'),loading: Loading});
@@ -39,6 +40,7 @@ export default [
   { path: "/appdeliver/imagecenter/registrycert", component: Registrycert, roles: ["admin","editor","guest"] },
   { path: "/appdeliver/containermanage/appmanage", component: Appmanage, roles: ["admin","editor","guest"]},
   { path: "/appdeliver/containermanage/configmanage", component: Configmanage, roles: ["admin","editor","guest"]},
+  { path: "/appdeliver/ci/projectbuild", component: Projectbuild, roles: ["admin","editor","guest"]},
   { path: "/system/env", component: Env, roles: ["admin","editor","guest"] },
   { path: "/basic/cluster", component: Cluster, roles: ["admin","editor","guest"] },
   { path: "/basic/clusterinfo", component: ClusterInfo, roles: ["admin","editor","guest"]},

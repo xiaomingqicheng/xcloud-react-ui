@@ -115,30 +115,30 @@ const menuList = [
       },
       {
         title: "持续集成",
-        path: "/appdeliver/ci",
+        path: "/appdeliver/projectbuild",
         icon: "home",
         children: [
           {
             title: "代码仓库",
-            path: "/appdeliver/ci/coderegistry",
+            path: "/appdeliver/projectbuild/coderegistry",
             icon: "home",
             roles: ["admin", "editor", "guest"]
           },
           {
             title: "Dockerfile",
-            path: "/appdeliver/ci/dockerfile",
+            path: "/appdeliver/projectbuild/dockerfile",
             icon: "home",
             roles: ["admin", "editor", "guest"]
           },
           {
             title: "构建项目",
-            path: "/appdeliver/ci/builditem",
+            path: "/appdeliver/ci/projectbuild",
             icon: "home",
             roles: ["admin", "editor", "guest"]
           },
           {
             title: "构建历史",
-            path: "/appdeliver/ci/history",
+            path: "/appdeliver/projectbuild/history",
             icon: "home",
             roles: ["admin", "editor", "guest"]
           },
